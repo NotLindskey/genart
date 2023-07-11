@@ -31,12 +31,16 @@ function setup() {
 let bgColor = randomColor();
 let bodyColor = randomColor();
 let eyeColor = randomColor();
+let circleColor = randomColor();
 
 function draw() {
   strokeWeight(5);
 
   //background
   background(lightenColor(bgColor, 30));
+
+  fill(circleColor);
+  ellipse(300, 300, 600, 600);
 
   //body
   fill(lightenColor(bodyColor, 10));

@@ -1,7 +1,15 @@
 const colors = ['red', 'yellow', 'green', 'cyan', 'blue', 'purple', 'orange'];
 
+let usedColorIndexes = [];
+
 function randColor() {
   let index = Math.floor(Math.random() * colors.length);
+
+  while (usedColorIndexes.includes(index)) {
+    index = Math.floor(Math.random() * colors.length);
+  }
+
+  usedColorIndexes.push(index);
 
   return colors[index];
 }
@@ -12,11 +20,7 @@ function setup() {
 
 let bgColor = randColor();
 let bodyColor = randColor();
-let earsColor = randColor();
-let innerEarsColor = randColor();
 let eyeColor = randColor();
-let faceColor = randColor();
-let snoutColor = randColor();
 
 function draw() {
   strokeWeight(5);
@@ -29,17 +33,17 @@ function draw() {
   ellipse(300, 690, 640, 440);
 
   // ears
-  fill(earsColor);
+  fill(bodyColor);
   ellipse(125, 135, 170, 170);
   ellipse(475, 135, 170, 170);
 
   // inner ears
-  fill(innerEarsColor);
+  fill(bodyColor);
   ellipse(125, 135, 140, 140);
   ellipse(475, 135, 140, 140);
 
   // face
-  fill(faceColor);
+  fill(bodyColor);
   ellipse(300, 330, 450, 440);
 
   //eyes
@@ -53,7 +57,7 @@ function draw() {
   ellipse(370, 250, 30, 30);
 
   // snout
-  fill(snoutColor);
+  fill(bodyColor);
   ellipse(300, 390, 200, 200);
 
   // mouth

@@ -1,8 +1,18 @@
-const colors = ['red', 'yellow', 'green', 'cyan', 'blue', 'purple', 'orange'];
+const colors = [
+  '#EF1A1A',
+  '#EFEE1A',
+  '#33EF1A',
+  '#1AEFE9',
+  '#1A29EF',
+  '#961AEF',
+  '#EF5F1A',
+  '#EF881A',
+  '#EF1A90',
+];
 
 let usedColorIndexes = [];
 
-function randColor() {
+function randomColor() {
   let index = Math.floor(Math.random() * colors.length);
 
   while (usedColorIndexes.includes(index)) {
@@ -18,22 +28,22 @@ function setup() {
   createCanvas(600, 600);
 }
 
-let bgColor = randColor();
-let bodyColor = randColor();
-let eyeColor = randColor();
+let bgColor = randomColor();
+let bodyColor = randomColor();
+let eyeColor = randomColor();
 
 function draw() {
   strokeWeight(5);
 
   //background
-  background(bgColor);
+  background(lightenColor(bgColor, 30));
 
   //body
-  fill(bodyColor);
+  fill(lightenColor(bodyColor, 10));
   ellipse(300, 690, 640, 440);
 
   // ears
-  fill(bodyColor);
+  fill(lightenColor(bodyColor, 10));
   ellipse(125, 135, 170, 170);
   ellipse(475, 135, 170, 170);
 
@@ -43,7 +53,7 @@ function draw() {
   ellipse(475, 135, 140, 140);
 
   // face
-  fill(bodyColor);
+  fill(lightenColor(bodyColor, 10));
   ellipse(300, 330, 450, 440);
 
   //eyes
@@ -72,3 +82,29 @@ function draw() {
   fill('black');
   ellipse(300, 350, 80);
 }
+
+function lightenColor(color, percent) {
+  var num = parseInt(color.replace('#', ''), 16),
+    amt = Math.round(2.55 * percent),
+    R = (num >> 16) + amt,
+    B = ((num >> 8) & 0x00ff) + amt,
+    G = (num & 0x0000ff) + amt;
+
+  return (
+    '#' +
+    (
+      0x1000000 +
+      (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 +
+      (B < 255 ? (B < 1 ? 0 : B) : 255) * 0x100 +
+      (G < 255 ? (G < 1 ? 0 : G) : 255)
+    )
+      .toString(16)
+      .slice(1)
+  );
+}
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   setTimeout(() => {
+//     saveSVG('svg');
+//   }, 500);
+// });

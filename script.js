@@ -47,9 +47,13 @@ function draw() {
   ellipse(300, 330, 450, 440);
 
   //eyes
-  fill(eyeColor);
+  fill('white');
   ellipse(230, 250, 82, 82);
   ellipse(370, 250, 82, 82);
+
+  fill(eyeColor);
+  ellipse(230, 250, 59, 59);
+  ellipse(370, 250, 59, 59);
 
   // pupils
   fill('black');

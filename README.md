@@ -7,4 +7,4 @@ Refresh the page for the bear to change colors!
 
 Visit the website at: https://notlindskey.github.io/genart/
 
-## CHANGE BUTTON NOT WORKING, [ Window Users: PLEASE USE SYSTEMS + R || Mac Users: COMMAND + R ] TO REFRESH AND SEE BEST RESULTS ##
+## CHANGE BUTTON NOT WORKING, [ Window Users: PLEASE USE CTRL + R || Mac Users: COMMAND + R ] TO REFRESH AND SEE BEST RESULTS ##
